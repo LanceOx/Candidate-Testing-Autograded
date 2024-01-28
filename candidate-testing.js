@@ -29,7 +29,8 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-    candidateName = input.question("Please enter your name ");      //
+    
+  candidateName = input.question("Please enter your first name: ");      
 }
 
 function askQuestion() {
@@ -46,7 +47,7 @@ function askQuestion() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
  
 //}
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) {
   //console.log("Candidate's Responses:");                    
   let correctAmount = 0;
   for (let i = 0; i < questions.length; i++) {              
@@ -64,25 +65,26 @@ function gradeQuiz() {
     {   correctAmount++;
   }
 }
-//console.log(`Candidate's Score: ${correctAmount} out of ${correctAnswers.length} (${score}% correct)`)
 
- //TODO 3.2 use this variable to calculate the candidates score.//
-console.log(`Candidate's Score: ${correctAmount} out of ${questions.length} (${score}% correct)`)
-let grade = (correctAmount / questions.length) * 100;
-if (grade <= 60){
-  console.log(`that ${grade}% is failing`)
-}if (grade >= 80){
-  console.log(`that ${grade}% is passing`)
-}
-   return grade;//
+//TODO 3.2 use this variable to calculate the candidates score.//
+
+ console.log(`Candidate's Score: ${correctAmount} out of ${questions.length} (${correctAmount/questions.length*100}% correct)`);
+ console.log();
+  let grade = (correctAmount / questions.length) * 100;
+  if (grade <= 60){
+  console.log(`${grade}% - You have failed this test.`)}
+  if (grade >= 80){
+  console.log(`${grade}%! Great effort, you have passed this test.`)
+  }
+   return grade;
 }
 
 function runProgram() {
-  askForName();                                                      
+         askForName();                                                      
   // TODO 1.1c: Greet candidate using their name //
    console.log("Hello", candidateName , "it's nice to see you again!");
-  askQuestion();
-  gradeQuiz();
+   askQuestion();
+   gradeQuiz(candidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
