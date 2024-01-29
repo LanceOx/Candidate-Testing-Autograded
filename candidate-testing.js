@@ -68,8 +68,8 @@ function gradeQuiz(candidateAnswers) {
 
 //TODO 3.2 use this variable to calculate the candidates score.//
 
- console.log(`Candidate's Score: ${correctAmount} out of ${questions.length} (${correctAmount/questions.length*100}% correct)`);
- console.log();
+console.log(`Candidate's Score: ${correctAmount} out of ${questions.length} (${correctAmount/questions.length*100}% correct)`);
+console.log();
   let grade = (correctAmount / questions.length) * 100;
   if (grade <= 60){
   console.log(`${grade}% - You have failed this test.`)}
